@@ -1,0 +1,66 @@
+{
+  "name": "projects-browser-electron-18.2.1",
+  "version": "0.0.0",
+  "description": "Simple Web Browser",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron-forge start",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "package": "electron-forge package",
+    "make": "electron-forge make",
+    "build": "electron-forge make"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JJFrampton/projects-browser-electron-18.2.1.git"
+  },
+  "keywords": [
+    "browser",
+    "electron",
+    "app"
+  ],
+  "author": "JJF",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/JJFrampton/projects-browser-electron-18.2.1/issues"
+  },
+  "homepage": "https://github.com/JJFrampton/projects-browser-electron-18.2.1#readme",
+  "devDependencies": {
+    "@electron-forge/cli": "^6.0.0-beta.63",
+    "@electron-forge/maker-deb": "^6.0.0-beta.63",
+    "@electron-forge/maker-rpm": "^6.0.0-beta.63",
+    "@electron-forge/maker-squirrel": "^6.0.0-beta.63",
+    "@electron-forge/maker-zip": "^6.0.0-beta.63",
+    "electron": "^19.0.1"
+  },
+  "dependencies": {
+    "electron-squirrel-startup": "^1.0.0"
+  },
+  "config": {
+    "forge": {
+      "packagerConfig": {},
+      "makers": [
+        {
+          "name": "@electron-forge/maker-squirrel",
+          "config": {
+            "name": "projects_browser_electron_18.2.1"
+          }
+        },
+        {
+          "name": "@electron-forge/maker-zip",
+          "platforms": [
+            "darwin"
+          ]
+        },
+        {
+          "name": "@electron-forge/maker-deb",
+          "config": {}
+        },
+        {
+          "name": "@electron-forge/maker-rpm",
+          "config": {}
+        }
+      ]
+    }
+  }
+}

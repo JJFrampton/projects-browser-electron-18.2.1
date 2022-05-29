@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
+    <!--
+      THIS WAS STOPPING THE WINDOW DRAG
+      <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
+    -->
+    <title>Hello World!</title>
+    <style media="screen">
+      html, body {
+        height: 100%;
+        width: 100%;
+      }
+    </style>
+    <!--
+    <style media="screen">
+      html, body {
+        height: 100%;
+        width: 100%;
+        -webkit-app-region: drag;
+        -webkit-user-select: none;
+      }
+      #header {
+        -webkit-user-select: none;
+        -webkit-app-region: drag;
+      }
+    </style>
+    -->
+  </head>
+  <body>
+    <div id='header'>
+      HEADER HERE
+    </div>
+    <h1>Hello World!</h1>
+    We are using Node.js <span id="node-version"></span>,
+    Chromium <span id="chrome-version"></span>,
+    and Electron <span id="electron-version"></span>.
+  <script src="./renderer.js"></script>
+  </body>
+</html>
