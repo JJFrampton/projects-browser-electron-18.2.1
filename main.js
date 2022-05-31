@@ -65,18 +65,6 @@ const createWindow = () => {
       }
     },
     {
-      label: 'Toggle Movable',
-      accelerator: `${mod}+M`,
-      click: (menuItem, focusedWindow, event) => {
-        console.log('Toggle Movable')
-        // const { ipcMain } = require('electron');
-        // ipcMain.send('toggleMovable')
-
-				console.log("DONT USE THIS")
-        // focusedWindow.webContents.insertCSS('html, body { \-webkit-app-region: drag!important; user-select: none!important;}')
-      }
-    },
-    {
       label: 'Toggle Opacity',
       accelerator: `${mod}+O`,
       click: (menuItem, focusedWindow, event) => {

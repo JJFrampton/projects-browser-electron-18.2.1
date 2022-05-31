@@ -12,10 +12,9 @@ function ByTag(tag) {
 // let views = ById('views')
 // views.appendChild(view)
 
-
 function filterKeyUps(e) {
   if (e.key === "ArrowUp") { window.alert("WORKING")}
-  if (e.key === "ArrowDown") { toggleMovable() }
+  if (e.key === "M") { toggleMovable() }
 }
 
 window.addEventListener('keyup', filterKeyUps, true)

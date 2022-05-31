@@ -7,16 +7,16 @@
       THIS WAS STOPPING THE WINDOW DRAG
       <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
     -->
-    <title>Hello World!</title>
+    <title>Glass</title>
     <style media="screen">
       html, body {
         height: 100%;
         width: 100%;
+        margin: 0px;
       }
       webview, #view, #views {
         width: 100%;
         height: 100%;
-        display: block;
       }
     </style>
     <!--
@@ -35,15 +35,18 @@
     -->
   </head>
   <body>
-    <div id='header'>
-      HEADER HERE
-    </div>
-    <h1>Hello World!</h1>
-    We are using Node.js <span id="node-version"></span>,
-    Chromium <span id="chrome-version"></span>,
-    and Electron <span id="electron-version"></span>.
+    <!--
+      <div id='header'>
+        HEADER HERE
+      </div>
+      <h1>Hello World!</h1>
+      We are using Node.js <span id="node-version"></span>,
+      Chromium <span id="chrome-version"></span>,
+      and Electron <span id="electron-version"></span>.
+    -->
     <div id="views">
-      <webview id="view" class="page" src="http://www.google.com/" autosize="on"></webview>
+      <!-- <webview id="view" class="page" src="http://www.google.com/" autosize="on"></webview> -->
+      <webview id="view" class="page" src="http://www.google.com/" autosize='on'></webview>
     </div>
   <script src="./renderer.js"></script>
   </body>
