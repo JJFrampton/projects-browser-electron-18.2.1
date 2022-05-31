@@ -13,8 +13,9 @@ function ByTag(tag) {
 // views.appendChild(view)
 
 function filterKeyUps(e) {
+  console.log(e.key)
   if (e.key === "ArrowUp") { window.alert("WORKING")}
-  if (e.key === "M") { toggleMovable() }
+  // if (e.key === "M") { toggleMovable() }
 }
 
 window.addEventListener('keyup', filterKeyUps, true)
@@ -23,10 +24,11 @@ window.addEventListener('keyup', filterKeyUps, true)
 // functions
 
 function toggleMovable() {
+  // window.alert("toggleMovable()")
   let body = ByTag('body')[0]
   let region = body.style['-webkit-app-region']
   let selectable = body.style['user-select']
-  window.alert(JSON.stringify(region), JSON.stringify(selectable))
+  // window.alert(JSON.stringify(region), JSON.stringify(selectable))
   let newregion = region === 'drag'? 'no-drag': 'drag'
   let newSelectable = selectable === 'none'? 'auto': 'none'
   body.style['-webkit-app-region'] = newregion
@@ -35,8 +37,18 @@ function toggleMovable() {
   let html = ByTag('html')[0]
   html.style['-webkit-app-region'] = newregion
   html.style['user-select'] = newSelectable
-  window.alert(JSON.stringify(body.style['-webkit-app-region']))
+  // window.alert(JSON.stringify(body.style['-webkit-app-region']))
+
   // ISSUES
   // turning off the draggable flag, required you to scroll the window from some reason
   // after changing the css and scrolling, the draggable behaviour is turned off
 }
+
+// const ipcRenderer = window.require('electron').ipcRenderer;
+// const { ipcRenderer } = window;
+ipcRenderer.on('fromMain', function (evt, message) {
+  if ( message === "toggleMovable" ) {
+    toggleMovable()
+    ipcRenderer.send('toMain', { message: "toggleMovable" } )
+  }
+})
