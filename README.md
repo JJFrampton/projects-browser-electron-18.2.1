@@ -20,3 +20,6 @@ Read through electron-tabs or the other project about firebase
 carefully to see how they manage tabs
 
 impliment a simple version of this, you dont need all their functionality
+
+## Issues
+- setting controls window set at 0 to hide, will expand when resizing the window (bigger)
