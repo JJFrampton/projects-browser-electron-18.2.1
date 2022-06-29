@@ -23,3 +23,5 @@ impliment a simple version of this, you dont need all their functionality
 
 ## Issues
 - setting controls window set at 0 to hide, will expand when resizing the window (bigger)
+- the menu items dont seem to be working on macos, there are no menu items in the top bar
+and the hotkeys are non-responsive. Through console logging, it seems like the menu is create ¯\_(ツ)_/¯
