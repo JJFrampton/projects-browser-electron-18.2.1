@@ -1,6 +1,7 @@
 const { Menu, MenuItem, app, BrowserWindow, BrowserView } = require('electron');
 const path = require('path');
 const { v4: uuid } = require('uuid');
+let applicationMenu = require('./components/application-menu')
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
 if (require('electron-squirrel-startup')) {
@@ -47,12 +48,13 @@ const createWindow = () => {
   // Set controls to top layer?
   mainWindow.setTopBrowserView(controls)
 
+  // Create and set menu
+  let menu = applicationMenu.create(mainWindow, controls)
+  Menu.setApplicationMenu(Menu.buildFromTemplate(menu))
+
 };
 
-// Create and set menu
-let applicationMenu = require('./components/application-menu')
-let menu = applicationMenu.create()
-Menu.setApplicationMenu(Menu.buildFromTemplate(menu))
+
 
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
