@@ -49,9 +49,9 @@ const createWindow = () => {
   mainWindow.setTopBrowserView(controls);
 
 	// set menu
-	// let menu = utils.createMenu()
-	// console.log(menu)
-  // Menu.setApplicationMenu(menu)
+	let menu = utils.createMenu()
+	console.log(menu)
+  Menu.setApplicationMenu(menu)
 };
 
 // This method will be called when Electron has finished
@@ -78,3 +78,14 @@ app.on('activate', () => {
 
 // In this file you can include the rest of your app's specific main process
 // code. You can also put them in separate files and import them here.
+
+
+// Tabs
+// need to track with an object containing actual browserviews (to stop garbage collection)
+// and also an array of browserwindow ids to keep track of the order of tabs
+
+// Note : Theres lots of functionality that you take for granted that you would have to impliment
+// eg. moving tabs (re-ordering), adding / removing tabs from the beginning, middle and end of the array of tabs,
+// selecting multiple tabs, 
+
+// might want to think about using the electron-tabs plugin and hiding the tabs by default
