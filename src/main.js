@@ -1,4 +1,4 @@
-const { Menu, MenuItem, app, BrowserWindow, BrowserView } = require('electron');
+const { Menu, MenuItem, app, BrowserWindow, BrowserView, ipcMain } = require('electron');
 const path = require('path');
 const { v4: uuid } = require('uuid');
 let applicationMenu = require('./components/application-menu')
@@ -14,7 +14,13 @@ const createWindow = () => {
   const mainWindow = new BrowserWindow({
     width: 800,
     height: 600,
-	frame: false
+    frame: false,
+    webPreferences: {
+      nodeIntegration: false, // is default value after Electron v5
+      contextIsolation: true, // protect against prototype pollution
+      enableRemoteModule: false, // turn off remote
+      preload: path.join(__dirname, "preload.js") // use a preload script
+    }
   });
 
   // and load the index.html of the app.
@@ -80,3 +86,7 @@ app.on('activate', () => {
 
 // In this file you can include the rest of your app's specific main process
 // code. You can also put them in separate files and import them here.
+
+ipcMain.on("toMain:search", (event, args) => {
+  console.log("SEARCH : MADE IT TO MAIN")
+});
